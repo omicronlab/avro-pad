@@ -43,12 +43,16 @@ html, body {
 }
 
 #wrapper {
-  background: #fbfbfb;
   height: 100%;
+}
+.wrapper_light {
+  background: #fbfbfb;
 }
 
 footer {
   color: #eee;
+}
+.footer_light {
   background: #1f1f1f;
 }
 
@@ -406,3 +410,31 @@ input, textarea, select, button, label {
     background-position: 220px 0;
   }
 }
+
+
+.mode_switch {
+  margin-top: 15px;
+
+}
+.mode_label {
+  float: left;
+  line-height: 57px;
+  margin-right: 10px;
+}
+/*dark css*/
+.wrapper_dark {
+  background: #212121 !important;
+}
+.footer_dark {
+  color: #eee;	
+  background: #303030 !important;
+}
+.text_light_mode{
+  color:#232323 !important;
+}
+.text_dark_mode{
+  color:#dfdbdb !important;
+}
+
+
+/*dark css*/

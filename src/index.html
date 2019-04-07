@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="en" manifest="app.appcache">
+
+
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
 	<meta property="og:site_name" content="avro.im">
 	<meta property="og:title" content="avro.im - Avro on the Web">
 	<meta property="og:url" content="http://avro.im/">
-	<meta name="description" content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
-	<meta property="og:description" content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
+	<meta name="description"
+		content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
+	<meta property="og:description"
+		content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
 	<meta property="og:image" content="http://avro.im/images/avroim_og.jpg">
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="1200">
@@ -16,24 +21,25 @@
 	<meta name="twitter:domain" content="avro.im">
 	<meta name="twitter:creator" content="@omicronlab">
 	<meta name="twitter:title" content="avro.im - Avro on the Web">
-	<meta name="twitter:description" content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
+	<meta name="twitter:description"
+		content="avro.im - Bangla typing tool for the Web. Use Avro Phonetic on your browser without installing any additional tool.">
 	<meta name="twitter:image:src" content="http://avro.im/images/avroim_og.jpg">
 	<meta name="twitter:image:width" content="1200">
 	<meta name="twitter:image:height" content="627">
 	<!-- windows tile -->
-	<meta name="application-name" content="avro.im"/>
-	<meta name="msapplication-TileColor" content="#1f1f1f"/>
-	<meta name="msapplication-square70x70logo" content="/images/tile-tiny.png"/>
-	<meta name="msapplication-square150x150logo" content="/images/tile-square.png"/>
-	<meta name="msapplication-wide310x150logo" content="/images/tile-wide.png"/>
-	<meta name="msapplication-square310x310logo" content="/images/tile-large.png"/>
+	<meta name="application-name" content="avro.im" />
+	<meta name="msapplication-TileColor" content="#1f1f1f" />
+	<meta name="msapplication-square70x70logo" content="/images/tile-tiny.png" />
+	<meta name="msapplication-square150x150logo" content="/images/tile-square.png" />
+	<meta name="msapplication-wide310x150logo" content="/images/tile-wide.png" />
+	<meta name="msapplication-square310x310logo" content="/images/tile-large.png" />
 	<!-- end windows tile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-	<title>avro.im</title>
+	<title>avro.im | Write Bangla Instantly</title>
 	<!-- build:css css/app.css -->
 	<link rel="stylesheet" href="vendor/jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen">
@@ -48,14 +54,12 @@
 			background: #1f1f1f;
 			z-index: 99;
 		}
-
 		#wrapper {
 			display: none;
 		}
-
 		#loader h1 {
 			font-family: 'Avenir', 'Arial', sans-serif;
-			color: #ffa729;
+			color: #ffa544;
 			text-transform: uppercase;
 			font-size: 1em;
 			letter-spacing: 1.5px;
@@ -63,164 +67,124 @@
 			width: 200px;
 			margin-top: 20px;
 			-webkit-animation: fade 3s infinite;
-			animation: fade 3s infinite;
 		}
-
 		.container {
 			width: 220px;
 			padding-top: 200px;
 			margin: auto;
 			vertical-align: middle;
 		}
-
 		.anim-container {
 			margin: auto;
 			width: 110px;
 		}
-
 		.ex {
 			font-family: 'Avenir', 'Arial', sans-serif;
-			color: #ffa729;
+			color: #ffa544;
 			text-transform: uppercase;
+			font-size: 1em;
 			letter-spacing: 1.5px;
 			text-align: center;
 			width: 200px;
+			margin-top: 20px;
 			-webkit-animation: fade 3s infinite;
-			animation: fade 3s infinite;
+			font-family: 'flamenco';
 			font-size: 4em;
 			width: 40px;
 			height: 40px;
-			margin-top: -24px;
+			margin-top: -17px;
 			display: inline-block;
-			border: 4px double #ffa729;
+			border: 4px double #ffa544;
 		}
-
 		.ex:nth-child(1) {
 			-webkit-animation: spin1 3s infinite 1s;
 			-webkit-transform-origin: 50% 52%;
-			animation: spin1 3s infinite 1s;
-			transform-origin: 50% 52%;
 			margin-left: 10px;
 		}
-
 		.ex:nth-child(2) {
 			-webkit-animation: spin2 3s infinite 1s;
 			-webkit-transform-origin: 50% 52%;
-			animation: spin2 3s infinite 1s;
-			transform-origin: 50% 52%;
 			margin-left: -20px;
 		}
-
 		.ex:nth-child(3) {
 			-webkit-animation: spin2 3s infinite 1s;
 			-webkit-transform-origin: 50% 52%;
-			animation: spin2 3s infinite 1s;
-			transform-origin: 50% 52%;
 			margin-left: 10px;
 		}
-
 		.ex:nth-child(4) {
 			margin-left: -1px;
 			-webkit-animation: spin1 3s infinite 1s;
 			-webkit-transform-origin: 50% 52%;
-			animation: spin1 3s infinite 1s;
-			transform-origin: 50% 52%;
 			margin-left: -20px;
 		}
-
 		@-webkit-keyframes spin1 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(360deg);
-				transform: rotate(360deg);
 			}
 		}
 		@-moz-keyframes spin1 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(360deg);
-				transform: rotate(360deg);
 			}
 		}
 		@-o-keyframes spin1 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(360deg);
-				transform: rotate(360deg);
 			}
 		}
 		@keyframes spin1 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(360deg);
-				transform: rotate(360deg);
 			}
 		}
 		@-webkit-keyframes spin2 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(-360deg);
-				transform: rotate(-360deg);
 			}
 		}
 		@-moz-keyframes spin2 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(-360deg);
-				transform: rotate(-360deg);
 			}
 		}
 		@-o-keyframes spin2 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(-360deg);
-				transform: rotate(-360deg);
 			}
 		}
 		@keyframes spin2 {
 			0% {
 				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
 			}
-
 			100% {
 				-webkit-transform: rotate(-360deg);
-				transform: rotate(-360deg);
 			}
 		}
 		@-webkit-keyframes fade {
 			50% {
 				opacity: 0.5;
 			}
-
 			100% {
 				opacity: 1;
 			}
@@ -229,7 +193,6 @@
 			50% {
 				opacity: 0.5;
 			}
-
 			100% {
 				opacity: 1;
 			}
@@ -238,7 +201,6 @@
 			50% {
 				opacity: 0.5;
 			}
-
 			100% {
 				opacity: 1;
 			}
@@ -247,19 +209,16 @@
 			50% {
 				opacity: 0.5;
 			}
-
 			100% {
 				opacity: 1;
 			}
 		}
-
-		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-			main {
-				display: block;
-			}
-		}
 	</style>
+
+
+
 </head>
+
 <body>
 	<div id="loader" style="display:none">
 		<div class="container">
@@ -273,19 +232,19 @@
 		</div>
 	</div>
 	<script>
-		setTimeout(function(){
+		setTimeout(function () {
 			var elem = document.getElementById("loader");
 			if (!!elem) elem.style.display = "block";
 		}, 500);
 	</script>
-	<div id="wrapper" class="cf">
+	<div id="wrapper" class="cf wrapper_light">
 		<main>
 			<div class="content">
-				<textarea disabled="true" placeholder="Write Here"
-				spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea>
+				<textarea disabled="true" placeholder="Write Here" spellcheck="false" autocapitalize="off"
+					autocomplete="off" autocorrect="off"></textarea>
 			</div>
 		</main>
-		<footer>
+		<footer class="footer_light">
 			<div class="wrapper">
 				<div class="cf toggle">
 					<div class="desktop-only label left">CONTROL</div>
@@ -298,9 +257,22 @@
 						<input type="checkbox" id="state" checked="">
 						<label for="state" data-on="BN" data-off="EN"></label>
 					</span>
+
+					<br>
+					<span class="switch mode_switch">
+						<input type="checkbox" id="myCheckbox" onchange="switchMode()" checked="">
+						<label for="myCheckbox" data-on="Dark" data-off="Light"></label>
+
+					</span>
+					<div class="mode_label">Change Mode</div>
+
+
+
+
+
 				</div>
 				<div class="drafts">
-					<h2>Drafts</h2>
+					<h2>Saved Drafts</h2>
 					<ul>
 						<li><a href="#">Draft 1</a></li>
 						<li><a href="#">Draft 2</a></li>
@@ -311,13 +283,16 @@
 				</div>
 				<div class="social">
 					<a target="_blank" href="https://www.facebook.com/avrokeyboard">
-						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjkuNzY1LDUwLjMxOWg2Ljc0NFYzMy45OThoNC40OTlsMC41OTYtNS42MjRoLTUuMDk1ICBsMC4wMDctMi44MTVjMC0xLjQ2NywwLjE0LTIuMjUzLDIuMjQ0LTIuMjUzaDIuODEydi01LjYyNWgtNC41Yy01LjQwNSwwLTcuMzA3LDIuNzI5LTcuMzA3LDcuMzE2djMuMzc3aC0zLjM2OXY1LjYyNWgzLjM2OVY1MC4zMTl6ICAgTTMzLjUsMWwyOC4xNDYsMTYuMjV2MzIuNUwzMy41LDY2TDUuMzU0LDQ5Ljc1di0zMi41TDMzLjUsMXoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNEOEQ5RDg7Ii8+PC9zdmc+" alt="Facebook" />
+						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjkuNzY1LDUwLjMxOWg2Ljc0NFYzMy45OThoNC40OTlsMC41OTYtNS42MjRoLTUuMDk1ICBsMC4wMDctMi44MTVjMC0xLjQ2NywwLjE0LTIuMjUzLDIuMjQ0LTIuMjUzaDIuODEydi01LjYyNWgtNC41Yy01LjQwNSwwLTcuMzA3LDIuNzI5LTcuMzA3LDcuMzE2djMuMzc3aC0zLjM2OXY1LjYyNWgzLjM2OVY1MC4zMTl6ICAgTTMzLjUsMWwyOC4xNDYsMTYuMjV2MzIuNUwzMy41LDY2TDUuMzU0LDQ5Ljc1di0zMi41TDMzLjUsMXoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNEOEQ5RDg7Ii8+PC9zdmc+"
+							alt="Facebook" />
 					</a>
 					<a target="_blank" href="https://twitter.com/omicronlab">
-						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMzcuMTY3LDIyLjI4M2MtMi42MTksMC45NTMtNC4yNzQsMy40MTEtNC4wODYsNi4xMDIgIGwwLjA2MywxLjAzOGwtMS4wNDgtMC4xMjhjLTMuODEzLTAuNDg2LTcuMTQ1LTIuMTQtOS45NzQtNC45MTRsLTEuMzgzLTEuMzc3bC0wLjM1NiwxLjAxN2MtMC43NTQsMi4yNjctMC4yNzIsNC42NiwxLjI5OSw2LjI3MSAgYzAuODM4LDAuODksMC42NDksMS4wMTctMC43OTYsMC40ODdjLTAuNTAzLTAuMTctMC45NDMtMC4yOTctMC45ODUtMC4yMzNjLTAuMTQ2LDAuMTQ4LDAuMzU2LDIuMDc2LDAuNzU0LDIuODM5ICBjMC41NDUsMS4wNiwxLjY1NSwyLjA5OCwyLjg3MSwyLjcxMmwxLjAyNywwLjQ4N2wtMS4yMTUsMC4wMjFjLTEuMTczLDAtMS4yMTUsMC4wMjEtMS4wODksMC40NjYgIGMwLjQxOSwxLjM3NywyLjA3NCwyLjgzOSwzLjkxOCwzLjQ3NWwxLjI5OSwwLjQ0NGwtMS4xMzEsMC42NzhjLTEuNjc2LDAuOTc1LTMuNjQ2LDEuNTI1LTUuNjE2LDEuNTY4ICBDMTkuNzc1LDQzLjI1NiwxOSw0My4zNDEsMTksNDMuNDA0YzAsMC4yMTIsMi41NTcsMS4zOTgsNC4wNDQsMS44NjRjNC40NjMsMS4zNzcsOS43NjUsMC43ODQsMTMuNzQ2LTEuNTY3ICBjMi44MjktMS42NzQsNS42NTctNSw2Ljk3OC04LjIyYzAuNzEzLTEuNzE2LDEuNDI1LTQuODUyLDEuNDI1LTYuMzU1YzAtMC45NzUsMC4wNjMtMS4xMDIsMS4yMzYtMi4yNjcgIGMwLjY5Mi0wLjY3OSwxLjM0MS0xLjQyLDEuNDY3LTEuNjMyYzAuMjEtMC40MDIsMC4xODgtMC40MDItMC44OC0wLjA0MmMtMS43ODEsMC42MzYtMi4wMzMsMC41NTEtMS4xNTItMC40MDIgIGMwLjY0OS0wLjY3OCwxLjQyNS0xLjkwNywxLjQyNS0yLjI2OGMwLTAuMDYzLTAuMzE0LDAuMDQzLTAuNjcxLDAuMjMzYy0wLjM3NywwLjIxMi0xLjIxNSwwLjUzLTEuODQ0LDAuNzIxbC0xLjEzMSwwLjM2ICBsLTEuMDI3LTAuNjk5Yy0wLjU2Ni0wLjM4Mi0xLjM2MS0wLjgwNi0xLjc4MS0wLjkzM0MzOS43NjYsMjEuOTAxLDM4LjEzMSwyMS45NDQsMzcuMTY3LDIyLjI4M3ogTTMzLjUsMWwyOC4xNDYsMTYuMjV2MzIuNUwzMy41LDY2ICBMNS4zNTQsNDkuNzV2LTMyLjVMMzMuNSwxeiIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0Q4RDlEODsiLz48L3N2Zz4=" alt="Twitter" />
+						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMzcuMTY3LDIyLjI4M2MtMi42MTksMC45NTMtNC4yNzQsMy40MTEtNC4wODYsNi4xMDIgIGwwLjA2MywxLjAzOGwtMS4wNDgtMC4xMjhjLTMuODEzLTAuNDg2LTcuMTQ1LTIuMTQtOS45NzQtNC45MTRsLTEuMzgzLTEuMzc3bC0wLjM1NiwxLjAxN2MtMC43NTQsMi4yNjctMC4yNzIsNC42NiwxLjI5OSw2LjI3MSAgYzAuODM4LDAuODksMC42NDksMS4wMTctMC43OTYsMC40ODdjLTAuNTAzLTAuMTctMC45NDMtMC4yOTctMC45ODUtMC4yMzNjLTAuMTQ2LDAuMTQ4LDAuMzU2LDIuMDc2LDAuNzU0LDIuODM5ICBjMC41NDUsMS4wNiwxLjY1NSwyLjA5OCwyLjg3MSwyLjcxMmwxLjAyNywwLjQ4N2wtMS4yMTUsMC4wMjFjLTEuMTczLDAtMS4yMTUsMC4wMjEtMS4wODksMC40NjYgIGMwLjQxOSwxLjM3NywyLjA3NCwyLjgzOSwzLjkxOCwzLjQ3NWwxLjI5OSwwLjQ0NGwtMS4xMzEsMC42NzhjLTEuNjc2LDAuOTc1LTMuNjQ2LDEuNTI1LTUuNjE2LDEuNTY4ICBDMTkuNzc1LDQzLjI1NiwxOSw0My4zNDEsMTksNDMuNDA0YzAsMC4yMTIsMi41NTcsMS4zOTgsNC4wNDQsMS44NjRjNC40NjMsMS4zNzcsOS43NjUsMC43ODQsMTMuNzQ2LTEuNTY3ICBjMi44MjktMS42NzQsNS42NTctNSw2Ljk3OC04LjIyYzAuNzEzLTEuNzE2LDEuNDI1LTQuODUyLDEuNDI1LTYuMzU1YzAtMC45NzUsMC4wNjMtMS4xMDIsMS4yMzYtMi4yNjcgIGMwLjY5Mi0wLjY3OSwxLjM0MS0xLjQyLDEuNDY3LTEuNjMyYzAuMjEtMC40MDIsMC4xODgtMC40MDItMC44OC0wLjA0MmMtMS43ODEsMC42MzYtMi4wMzMsMC41NTEtMS4xNTItMC40MDIgIGMwLjY0OS0wLjY3OCwxLjQyNS0xLjkwNywxLjQyNS0yLjI2OGMwLTAuMDYzLTAuMzE0LDAuMDQzLTAuNjcxLDAuMjMzYy0wLjM3NywwLjIxMi0xLjIxNSwwLjUzLTEuODQ0LDAuNzIxbC0xLjEzMSwwLjM2ICBsLTEuMDI3LTAuNjk5Yy0wLjU2Ni0wLjM4Mi0xLjM2MS0wLjgwNi0xLjc4MS0wLjkzM0MzOS43NjYsMjEuOTAxLDM4LjEzMSwyMS45NDQsMzcuMTY3LDIyLjI4M3ogTTMzLjUsMWwyOC4xNDYsMTYuMjV2MzIuNUwzMy41LDY2ICBMNS4zNTQsNDkuNzV2LTMyLjVMMzMuNSwxeiIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0Q4RDlEODsiLz48L3N2Zz4="
+							alt="Twitter" />
 					</a>
 					<a target="_blank" href="https://github.com/omicronlab/avro-pad/">
-						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjEuNTQzLDM0LjU2OGMtMC4wNTQsMCwwLjU5MiwxLjM2NywwLjYxLDEuMzY3ICBjMS40MSwyLjUxNiw0LjEyOCw0LjA4LDguNzEzLDQuNTEzYy0wLjY1NCwwLjQ4OC0xLjQ0LDEuNDE1LTEuNTQ5LDIuNDg2Yy0wLjgyMywwLjUyMi0yLjQ3OCwwLjY5NS0zLjc2NCwwLjI5NyAgYy0xLjgwMy0wLjU2LTIuNDkzLTQuMDY3LTUuMTkyLTMuNTY3Yy0wLjU4NCwwLjEwOC0wLjQ2OCwwLjQ4NiwwLjAzNywwLjgwOWMwLjgyMywwLjUyMiwxLjU5NywxLjE3OCwyLjE5NCwyLjU3MSAgYzAuNDU5LDEuMDcsMS40MjMsMi45ODIsNC40NzMsMi45ODJjMS4yMSwwLDIuMDU4LTAuMTQ0LDIuMDU4LTAuMTQ0czAuMDIzLDIuNzMxLDAuMDIzLDMuNzkzYzAsMS4yMjUtMS42ODIsMS41Ny0xLjY4MiwyLjE1OSAgYzAsMC4yMzIsMC41NTcsMC4yNTUsMS4wMDQsMC4yNTVjMC44ODQsMCwyLjcyMy0wLjcyNiwyLjcyMy0xLjk5OGMwLTEuMDExLDAuMDE3LTQuNDExLDAuMDE3LTUuMDA2YzAtMS4zLDAuNzA5LTEuNzEyLDAuNzA5LTEuNzEyICBzMC4wODgsNi45NDEtMC4xNjksNy44NzJjLTAuMzAyLDEuMDk0LTAuODQ3LDAuOTM4LTAuODQ3LDEuNDI3YzAsMC43MjYsMi4yMTQsMC4xNzgsMi45NDgtMS40MTZjMC41NjctMS4yNCwwLjMxOS04LjA1LDAuMzE5LTguMDUgIGwwLjYwNS0wLjAxMmMwLDAsMC4wMzQsMy4xMTcsMC4wMTMsNC41NDJjLTAuMDIxLDEuNDc2LTAuMTIyLDMuMzQyLDAuNzcsNC4yMjJjMC41ODYsMC41NzgsMi40ODQsMS41OTQsMi40ODQsMC42NjYgIGMwLTAuNTM5LTEuMDQtMC45ODItMS4wNC0yLjQ0MXYtNi43MTVjMC44MzEsMCwwLjcwNiwyLjIwOCwwLjcwNiwyLjIwOGwwLjA2MSw0LjEwM2MwLDAtMC4xODQsMS40OTQsMS42NDUsMi4xMiAgYzAuNjQ1LDAuMjIyLDIuMDI1LDAuMjgxLDIuMDktMC4wOTFjMC4wNjUtMC4zNzMtMS42NjItMC45MjctMS42NzgtMi4wODVjLTAuMDEtMC43MDYsMC4wMzItMS4xMTgsMC4wMzItNC4xODYgIGMwLTMuMDY4LTAuNDE5LTQuMjAyLTEuODgtNS4xMDVjNC41MDgtMC40NTYsNy4yOTktMS41NTIsOC42NTgtNC40ODdjMC4xMDYsMC4wMDMsMC41NTUtMS4zNzEsMC40OTYtMS4zNzEgIGMwLjMwNS0xLjEwOCwwLjQ3LTIuNDE5LDAuNTAyLTMuOTcyYy0wLjAwOC00LjIwOS0yLjA1OC01LjY5OC0yLjQ1MS02LjM5N2MwLjU4LTMuMTg3LTAuMDk4LTQuNjM4LTAuNDEyLTUuMTM1ICBjLTEuMTYyLTAuNDA2LTQuMDQxLDEuMDQ0LTUuNjE1LDIuMDY2Yy0yLjU2NC0wLjczNi03Ljk4Ni0wLjY2Ni0xMC4wMTksMC4xOWMtMy43NTEtMi42NC01LjczNi0yLjIzNS01LjczNi0yLjIzNSAgcy0xLjI4MywyLjI2LTAuMzM5LDUuNTY1Yy0xLjIzNCwxLjU0Ni0yLjE1NCwyLjY0LTIuMTU0LDUuNTM5QzIwLjkwNiwzMS44MywyMS4xMDIsMzMuMjkyLDIxLjU0MywzNC41Njh6IE0zMy41LDFsMjguMTQ2LDE2LjI1ICB2MzIuNUwzMy41LDY2TDUuMzU0LDQ5Ljc1di0zMi41TDMzLjUsMXoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNEOEQ5RDg7Ii8+PC9zdmc+" alt="GitHub" />
+						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjEuNTQzLDM0LjU2OGMtMC4wNTQsMCwwLjU5MiwxLjM2NywwLjYxLDEuMzY3ICBjMS40MSwyLjUxNiw0LjEyOCw0LjA4LDguNzEzLDQuNTEzYy0wLjY1NCwwLjQ4OC0xLjQ0LDEuNDE1LTEuNTQ5LDIuNDg2Yy0wLjgyMywwLjUyMi0yLjQ3OCwwLjY5NS0zLjc2NCwwLjI5NyAgYy0xLjgwMy0wLjU2LTIuNDkzLTQuMDY3LTUuMTkyLTMuNTY3Yy0wLjU4NCwwLjEwOC0wLjQ2OCwwLjQ4NiwwLjAzNywwLjgwOWMwLjgyMywwLjUyMiwxLjU5NywxLjE3OCwyLjE5NCwyLjU3MSAgYzAuNDU5LDEuMDcsMS40MjMsMi45ODIsNC40NzMsMi45ODJjMS4yMSwwLDIuMDU4LTAuMTQ0LDIuMDU4LTAuMTQ0czAuMDIzLDIuNzMxLDAuMDIzLDMuNzkzYzAsMS4yMjUtMS42ODIsMS41Ny0xLjY4MiwyLjE1OSAgYzAsMC4yMzIsMC41NTcsMC4yNTUsMS4wMDQsMC4yNTVjMC44ODQsMCwyLjcyMy0wLjcyNiwyLjcyMy0xLjk5OGMwLTEuMDExLDAuMDE3LTQuNDExLDAuMDE3LTUuMDA2YzAtMS4zLDAuNzA5LTEuNzEyLDAuNzA5LTEuNzEyICBzMC4wODgsNi45NDEtMC4xNjksNy44NzJjLTAuMzAyLDEuMDk0LTAuODQ3LDAuOTM4LTAuODQ3LDEuNDI3YzAsMC43MjYsMi4yMTQsMC4xNzgsMi45NDgtMS40MTZjMC41NjctMS4yNCwwLjMxOS04LjA1LDAuMzE5LTguMDUgIGwwLjYwNS0wLjAxMmMwLDAsMC4wMzQsMy4xMTcsMC4wMTMsNC41NDJjLTAuMDIxLDEuNDc2LTAuMTIyLDMuMzQyLDAuNzcsNC4yMjJjMC41ODYsMC41NzgsMi40ODQsMS41OTQsMi40ODQsMC42NjYgIGMwLTAuNTM5LTEuMDQtMC45ODItMS4wNC0yLjQ0MXYtNi43MTVjMC44MzEsMCwwLjcwNiwyLjIwOCwwLjcwNiwyLjIwOGwwLjA2MSw0LjEwM2MwLDAtMC4xODQsMS40OTQsMS42NDUsMi4xMiAgYzAuNjQ1LDAuMjIyLDIuMDI1LDAuMjgxLDIuMDktMC4wOTFjMC4wNjUtMC4zNzMtMS42NjItMC45MjctMS42NzgtMi4wODVjLTAuMDEtMC43MDYsMC4wMzItMS4xMTgsMC4wMzItNC4xODYgIGMwLTMuMDY4LTAuNDE5LTQuMjAyLTEuODgtNS4xMDVjNC41MDgtMC40NTYsNy4yOTktMS41NTIsOC42NTgtNC40ODdjMC4xMDYsMC4wMDMsMC41NTUtMS4zNzEsMC40OTYtMS4zNzEgIGMwLjMwNS0xLjEwOCwwLjQ3LTIuNDE5LDAuNTAyLTMuOTcyYy0wLjAwOC00LjIwOS0yLjA1OC01LjY5OC0yLjQ1MS02LjM5N2MwLjU4LTMuMTg3LTAuMDk4LTQuNjM4LTAuNDEyLTUuMTM1ICBjLTEuMTYyLTAuNDA2LTQuMDQxLDEuMDQ0LTUuNjE1LDIuMDY2Yy0yLjU2NC0wLjczNi03Ljk4Ni0wLjY2Ni0xMC4wMTksMC4xOWMtMy43NTEtMi42NC01LjczNi0yLjIzNS01LjczNi0yLjIzNSAgcy0xLjI4MywyLjI2LTAuMzM5LDUuNTY1Yy0xLjIzNCwxLjU0Ni0yLjE1NCwyLjY0LTIuMTU0LDUuNTM5QzIwLjkwNiwzMS44MywyMS4xMDIsMzMuMjkyLDIxLjU0MywzNC41Njh6IE0zMy41LDFsMjguMTQ2LDE2LjI1ICB2MzIuNUwzMy41LDY2TDUuMzU0LDQ5Ljc1di0zMi41TDMzLjUsMXoiIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNEOEQ5RDg7Ii8+PC9zdmc+"
+							alt="GitHub" />
 					</a>
 				</div>
 				<div class="logo"></div>
@@ -333,6 +308,8 @@
 	<script src="vendor/device.js/lib/device.js"></script>
 	<script src="js/avro.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/misc.js"></script>
 	<!-- endbuild -->
 </body>
+
 </html>
