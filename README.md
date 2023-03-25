@@ -74,6 +74,7 @@ And it's rare to have fixes on older Android releases, so old native Android bro
 * Rifat Nabi
 * Mehdi Hasan
 * Tanbin Islam Siyam
+* Istiak Ferdous
 
 ## License
 
