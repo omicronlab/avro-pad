@@ -5,11 +5,11 @@ var gulp        = require('gulp'),
     useref      = require('gulp-useref'),
     filter      = require('gulp-filter'),
     uglify      = require('gulp-uglify'),
-    manifest    = require('gulp-manifest'),
-    filesize    = require('gulp-filesize'),
-    minifyCss   = require('gulp-minify-css'),
-    revReplace  = require('gulp-rev-replace'),
-    opn         = require('opn'),
+    manifest    = require('gulp-manifest3'),
+    filesize    = require('gulp-size'),
+    cleanCss    = require('gulp-clean-css'),
+    revRewrite  = require('gulp-rev-rewrite'),
+    open        = require('open'),
     chalk       = require('chalk'),
     connect     = require('connect'),
     serveStatic = require('serve-static');
@@ -26,7 +26,7 @@ function server(host, port, path, next) {
     .listen(port, next)
     .on('listening', function () {
         console.log(chalk.green('Started dev server on http://' + host + ':' + port));
-        opn('http://' + host + ':' + port);
+        open('http://' + host + ':' + port);
     });
 }
 
@@ -39,24 +39,12 @@ gulp.task('clean', function () {
   return del(build);
 });
 
-gulp.task('images', ['clean'], function () {
+gulp.task('images', gulp.series('clean', function () {
   return gulp.src(src + '/images/**', {base: src})
     .pipe(gulp.dest(build));
-});
+}));
 
-gulp.task('manifest', ['assets'], function (){
-  gulp.src([build + '/**'])
-    .pipe(manifest({
-      hash         : true,
-      preferOnline : true,
-      network      : ['http://*', 'https://*', '*'],
-      filename     : 'app.appcache',
-      exclude      : ['app.appcache', 'index.html', 'images/avroim_og.jpg']
-     }))
-    .pipe(gulp.dest(build));
-});
-
-gulp.task('assets', ['clean', 'images'], function () {
+gulp.task('assets', gulp.series('images', function () {
   var jsFilter     = filter(['**/*.js'], {restore: true}),
       cssFilter    = filter(['**/*.css'], {restore: true});
 
@@ -67,23 +55,35 @@ gulp.task('assets', ['clean', 'images'], function () {
     .pipe(filesize())
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
-    .pipe(minifyCss())
+    .pipe(cleanCss())
     .pipe(filesize())
     .pipe(cssFilter.restore)
     .pipe(rev())
-    .pipe(revReplace())
+    .pipe(revRewrite())
     .pipe(gulp.dest(build));
-});
+}));
 
-gulp.task('watch', ['server'], function () {
+gulp.task('manifest', gulp.series('assets', async function () {
+  gulp.src([build + '/**'])
+    .pipe(manifest({
+      hash         : true,
+      preferOnline : true,
+      network      : ['http://*', 'https://*', '*'],
+      filename     : 'app.appcache',
+      exclude      : ['app.appcache', 'index.html', 'images/avroim_og.jpg']
+     }))
+    .pipe(gulp.dest(build));
+}));
+
+gulp.task('watch', gulp.series('server', async function () {
   lr({ start: true });
   gulp.watch(src + '/**').on('change', function (file) {
     lr.changed(file.path);
   });
-});
+}));
 
-gulp.task('build', ['images', 'assets', 'manifest']);
+gulp.task('build', gulp.series('manifest'));
 
-gulp.task('default', ['build'], function (next) {
+gulp.task('default', gulp.series('build', function (next) {
   server(host, process.env.PORT || 8888, build, next);
-});
+}));
