@@ -1,4 +1,6 @@
 /node_modules/
-/src/vendor/
+/src/vendor/*
+!/src/vendor/Caret.js/
 /build/
+/.idea/
 .DS_Store
