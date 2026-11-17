@@ -190,7 +190,7 @@ footer .wrapper {
 }
 
 footer .logo {
-  background: url('../images/logo-secondary.png') no-repeat bottom right;
+  background: url('./assets/logo-secondary.png') no-repeat bottom right;
   margin-top: 10px;
   height: 40px;
   padding-top: 10px;

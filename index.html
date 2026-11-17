@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" manifest="app.appcache">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta property="og:site_name" content="avro.im">
@@ -34,10 +34,7 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 	<title>avro.im</title>
-	<!-- build:css css/app.css -->
-	<link rel="stylesheet" href="vendor/jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen">
-	<!-- endbuild -->
+	<link rel="stylesheet" href="/vendor/jquery.atwho.css" type="text/css" media="screen">
 	<style type="text/css" media="screen">
 		#loader {
 			position: absolute;
@@ -324,15 +321,13 @@
 			</div>
 		</footer>
 	</div>
-	<!-- build:js js/app.js -->
-	<script src="vendor/jquery/dist/jquery.js"></script>
-	<script src="vendor/Caret.js/src/jquery.caret.js"></script>
-	<script src="vendor/jquery.atwho/dist/js/jquery.atwho.js"></script>
-	<script src="vendor/jquery-autosize/jquery.autosize.js"></script>
-	<script src="vendor/jquery-touchswipe/jquery.touchSwipe.js"></script>
-	<script src="vendor/device.js/lib/device.js"></script>
-	<script src="js/avro.min.js"></script>
-	<script src="js/main.js"></script>
-	<!-- endbuild -->
+	<script src="/vendor/jquery.js"></script>
+	<script src="/vendor/jquery.caret.js"></script>
+	<script src="/vendor/jquery.atwho.js"></script>
+	<script src="/vendor/jquery.autosize.js"></script>
+	<script src="/vendor/jquery.touchSwipe.js"></script>
+	<script src="/vendor/device.js"></script>
+	<script src="/js/avro.min.js"></script>
+	<script type="module" src="/src/main.ts"></script>
 </body>
 </html>
