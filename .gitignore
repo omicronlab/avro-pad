@@ -1,4 +1,4 @@
 /node_modules/
 /src/vendor/
-/build/
+/dist/
 .DS_Store
