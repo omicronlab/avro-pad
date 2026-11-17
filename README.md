@@ -4,10 +4,6 @@ Live: http://avro.im
 
 ---
 
-[![NPM Dev Dependencies](http://img.shields.io/david/dev/omicronlab/avro-pad.svg?style=flat-square)](https://david-dm.org/omicronlab/avro-pad#info=devDependencies&view=table)
-
----
-
 AvroPad is a full featured Avro Phonetic application with dictionary support. It runs locally on the browser, without requiring any server side processing and thus can be used offline without crippling its functionality.
 
 This project has been started by [Sarim](https://github.com/sarim) (who is also the maintainer of [ibus-avro](http://linux.omicronlab.com)). Since ibus-avro was written entirely in JavaScript, AvroPad was the first attempt to port that entire functionality to web.
@@ -21,40 +17,54 @@ Yes, we know [Google Input Tools](http://www.google.com/inputtools/try/) is ther
 
 ## Development
 
-Install [Node.js](http://nodejs.org/) if you haven't already.
+Install [Bun](https://bun.sh/). Vite 8 also needs Node.js 20.19+ (or 22.12+) available on the machine.
 
 **Install dependencies:**
 
 ```bash
-$ npm install -g gulp
-$ npm install
+$ bun install
 ```
 
-Running `npm install` will also install bower components for you.
+Runtime libraries are committed under `public/vendor/`, so there is no Bower
+step and no globally installed build tool.
 
-**Run (Development mode):**
+**Run (development mode):**
 
 ```bash
-$ gulp watch
+$ bun run dev
 ```
 
-Open [http://localhost:8080/](http://localhost:8080/) in your browser.
+Open [http://localhost:5173/](http://localhost:5173/) in your browser. Vite
+reloads the page when a source file changes.
 
-[Chrome Livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) extension will also come in handy if you don't want to refresh your browser manually every time you change the code.
+The entry points are `index.html`, `src/main.ts` and `src/main.css`. Static
+assets, including the phonetic engine and the vendored libraries, live in
+`public/`.
 
 ## Build
 
 ```bash
-$ gulp build
+$ bun run build
 ```
 
-This will minify assets and prepare the offline manifest file to deploy on production under ./build directory. Alternatively,
+This type-checks the TypeScript and writes a minified, fingerprinted build to
+`dist/`. The old gulp build also generated an offline AppCache manifest; that
+step is gone because browsers have removed AppCache support.
+
+To test the production build locally:
 
 ```bash
-$ gulp
+$ bun run preview
 ```
 
-This `$ gulp` command alone will do the above and also start a server with the production ready application. Open [http://localhost:8888/](http://localhost:8888/) in your browser to test.
+Open [http://localhost:4173/](http://localhost:4173/) in your browser.
+
+## Vendored dependencies
+
+The runtime libraries are checked into `public/vendor/` at the exact versions
+the original Bower build resolved to. Bower is retired and several pinned
+plugin versions are not reliably available from npm. See
+`public/vendor/README.md` for the versions and the pinning rationale.
 
 ## Browser support
 
